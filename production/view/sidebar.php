@@ -48,9 +48,9 @@ include("controller/doconnect.php");
               <li><a href="form_validation.php">Master Item Form</a></li>
               <li><a href="cogs.php">Cost of Goods Sold (COGS) Manual</a></li>
               <!-- <li><a href="form.html">Invoice Form</a></li> -->
-              <li><a href="form_supplier.php">Form Supplier</a></li>
-              <li><a href="recipe.php">Form Recipe</a></li>
-              <li><a href="calculate_cogs.php">Cost of Goods Sold (COGS)</a></li>
+              <!-- <li><a href="form_supplier.php">Form Supplier</a></li> -->
+              <!-- <li><a href="recipe.php">Form Recipe</a></li> -->
+              <!-- <li><a href="calculate_cogs.php">Cost of Goods Sold (COGS)</a></li> -->
               <li><a href="adjustment_inventory.php">Adjustment Inventory</a></li>
             </ul>
           </li>
@@ -59,7 +59,7 @@ include("controller/doconnect.php");
               <!-- <li><a href="projects.html">Projects</a></li> -->
               <!-- <li><a href="invoice.html">Invoice</a></li> -->
               <li><a href="media_gallery.php">Account Receiveable</a></li>
-              <li><a href="form_po.php">Account Payable</a></li>
+              <!-- <li><a href="form_po.php">Account Payable</a></li> -->
             </ul>
           </li>
           <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
@@ -67,8 +67,9 @@ include("controller/doconnect.php");
               <li><a href="tables_dynamic.php">Table Inventory</a></li>
               <li><a href="tables_invoice.php">Sales Invoice Summary</a></li>
               <li><a href="table_cogs.php">Table COGS</a></li>
-              <li><a href="po_summary.php">Purchase Invoice Summary</a></li>   
-              <li><a href="table_supplier.php">Table Supplier</a></li>             
+              <li><a href="form_customer.php">Data Pelanggan</a></li>
+              <!-- <li><a href="po_summary.php">Purchase Invoice Summary</a></li>    -->
+              <!-- <li><a href="table_supplier.php">Table Supplier</a></li>   -->
             </ul>
           </li>
           <li><a><i class="fas fa-store" style="width:26px; opacity:99; font-size:15px"></i> Outlets Settings <span class="fa fa-chevron-down"></span></a>

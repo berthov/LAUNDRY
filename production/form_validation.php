@@ -106,6 +106,20 @@ include("query/redirect_billing.php");
                           <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
                         </div>
                       </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Waktu Pengerjaan <span class="required">*</span>
+                        </label>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                          <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                          <select name="outlet_id" id="category" class="form-control col-lg-3 col-md-3 col-xs-4 category">
+                            <option value="60">JAM</option>
+                            <option value="1440">HARI</option>
+                            <option value="10080">MINGGU</option>
+                          </select>
+                        </div>
+                      </div>
                       <!-- <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit_price">Unit Price <span class="required">*</span>
                         </label>
@@ -117,7 +131,7 @@ include("query/redirect_billing.php");
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="max">Max Threshold <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="max" name="max" required="required" min="1" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                          <input type="number" id="max" name="max" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -150,6 +164,22 @@ include("query/redirect_billing.php");
                           <option value="Other" name="Other">Add Category</option>
                           </select>
                           <div id="div1"></div>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Apakah Item Jual<span class="required">*</span>
+                        </label>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" checked="" value="y" id="optionsRadios1" name="optionsRadios"> Ya
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" value="n" id="optionsRadios2" name="optionsRadios"> Tidak
+                            </label>
+                          </div>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

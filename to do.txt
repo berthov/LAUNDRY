@@ -1,3 +1,21 @@
-untuk discount semuanya masih belom
-category sales gk pake discount jadi aneh
-inventory bisa minus ( masih ngaco )
+FORM
+-master item form
+>sudah di tambahin waktu pengerjaan dan flag item jual atau bukan
+>untuk mass add csv blom di ganti sesuai dengan yang baru
+
+-cogs manual
+>hanya ngubah dari sm-6 ke sm-12
+
+-form supplier
+>bakal di ilangin dlu
+
+-form cogs system
+>bakal di ilangin dlu
+
+-form adjustment inventory
+>hanya ngubah dari sm-6 ke sm-12
+
+TRANSACTION
+
+-ap
+>bakal di ilangin dlu

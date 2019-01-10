@@ -2180,13 +2180,28 @@ span.section {
 }
 .form-control {
     border-radius: 0;
-    width: 100%
+    width: 100%;
 }
+
+.form-control.form-tes {
+    /*border-radius: 5px;*/
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid red;
+}
+
+.form-control.form-control.form-tes:focus{
+    /*border-color: #FF4040;*/
+    /*border-bottom: 1px solid red;*/
+    /*border: 1px solid red;*/
+}
+
 .form-horizontal .control-label {
     padding-top: 8px
 }
-.form-control:focus {
-    border-color: #CCD0D7;
+.form-control:focus{
+    border-color: #FF4040;
     box-shadow: none !important
 }
 legend {
