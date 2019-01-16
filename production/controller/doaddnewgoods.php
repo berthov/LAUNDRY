@@ -11,11 +11,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$item_code = $_REQUEST['item_code'];	
 	$description = $_REQUEST['description'];
 	$qty = $_REQUEST['qty'];
-	// $unit_price = $_REQUEST['unit_price'];
 	$min = $_REQUEST['min'];
 	$max = $_REQUEST['max'];
 	$created_date =  date("Y-m-d");	
 	$last_update_date =  date("Y-m-d");
+	$waktu_pengerjaan = $_REQUEST['waktu_pengerjaan'];
+	$optionsRadios = $_REQUEST['optionsRadios'];
+	$optionsRadios2 = $_REQUEST['optionsRadios2'];
+	$satuan_waktu_pengerjaan = $_REQUEST['satuan_waktu_pengerjaan'];
+	
 
 	if ($_REQUEST['category'] == 'Other') {
 		$category = $_REQUEST['other_category'];
@@ -35,8 +39,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		}
 		else{
 			
-		$sql = "INSERT INTO inventory (item_code, description,qty,min,max,created_by , created_date,last_update_by,last_update_date,ledger_id,status,category,outlet_id)
-		VALUES ('".$item_code."', '".$description."','".$qty."' ,'".$min."' , '".$max."','".$user_check."','".$created_date."','".$user_check."','".$last_update_date."','".$ledger_new."','Active','".$category."','".$outlet_new."')";
+		$sql = "INSERT INTO inventory (item_code, description,qty,min,max,created_by , created_date,last_update_by,last_update_date,ledger_id,status,category,outlet_id,waktu_pengerjaan,item_jual,satuan,cogs,satuan_waktu_pengerjaan)
+		VALUES ('".$item_code."', '".$description."','".$qty."' ,'".$min."' , '".$max."','".$user_check."','".$created_date."','".$user_check."','".$last_update_date."','".$ledger_new."','Active','".$category."','".$outlet_new."','".$waktu_pengerjaan."','".$optionsRadios."','".$optionsRadios2."',0,'".$satuan_waktu_pengerjaan."')";
 
 		if (mysqli_query($conn, $sql)) {
 		    echo "New record created successfully";

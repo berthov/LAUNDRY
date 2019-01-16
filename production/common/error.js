@@ -220,6 +220,10 @@ $(document).ready(function() {
     var max=$("#max").val();
     var category=$(".category").val();
     var other_category= $("#otherCategory").val();
+    var waktu_pengerjaan=$("#waktu_pengerjaan").val();
+    var optionsRadios=$('input[name=optionsRadios]:checked').val();
+    var optionsRadios2=$('input[name=optionsRadios2]:checked').val();
+    var satuan_waktu_pengerjaan=$("#satuan_waktu_pengerjaan").val();
 
     if(!other_category){
       other_category = category;
@@ -235,7 +239,11 @@ $(document).ready(function() {
             'min':min,
             'max':max,
             'category':category,
-            'other_category':other_category
+            'other_category':other_category,
+            'waktu_pengerjaan':waktu_pengerjaan,
+            'optionsRadios':optionsRadios,
+            'optionsRadios2':optionsRadios2,
+            'satuan_waktu_pengerjaan':satuan_waktu_pengerjaan
         },
         success:function(response){
           if(response=='Item already exist'){

@@ -97,7 +97,9 @@ include("query/redirect_billing.php");
                             <?php
                               $sql = "SELECT description,id FROM inventory
                               where ledger_id = '".$ledger_new."' 
-                              and outlet_id = '".$outlet_new."'";
+                              and outlet_id = '".$outlet_new."'
+                              and status = 'Active'
+                              and qty >=0";
                               $result = $conn->query($sql);
                               $a = 0;
                               while($row = $result->fetch_assoc()) {

@@ -27,6 +27,8 @@ include("query/redirect_billing.php");
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome-2/css/all.css" rel="stylesheet"> 
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
     <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
 
@@ -89,56 +91,49 @@ include("query/redirect_billing.php");
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Item Code <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="item_code" class="form-control col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="item_code" placeholder="ex.RMT-00000001" required="required" type="text">
+                          <input id="item_code" class="form-control col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="item_code" placeholder="Contoh: RMT-00000001" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="description" name="description" required="required" class="form-control col-md-7 col-xs-12" placeholder="PRIMA UP 480 SL UK.20 LTR - JERIGEN MAKIN">
+                          <input id="description" name="description" required="required" class="form-control col-md-7 col-xs-12" placeholder="Contoh: Cuci Satuan">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Quantity <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                          <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Waktu Pengerjaan <span class="required">*</span>
                         </label>
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                          <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                          <input type="number" id="waktu_pengerjaan" name="waktu_pengerjaan" required="required" min="1" max="9999" class="form-control col-md-7 col-xs-12" placeholder="Contoh: 2 JAM">
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                          <select name="outlet_id" id="category" class="form-control col-lg-3 col-md-3 col-xs-4 category">
+                          <select name="satuan_waktu_pengerjaan" id="satuan_waktu_pengerjaan" class="form-control col-lg-3 col-md-3 col-xs-4 category">
                             <option value="60">JAM</option>
                             <option value="1440">HARI</option>
                             <option value="10080">MINGGU</option>
                           </select>
                         </div>
                       </div>
-                      <!-- <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit_price">Unit Price <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="unit_price" name="unit_price" required="required" min="0.00000001" max="999999999999999" class="form-control col-md-7 col-xs-12" placeholder="0.00000001-999999999999999">
-                        </div>
-                      </div> -->
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="max">Max Threshold <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="max">Max Threshold 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="max" name="max" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                          <input type="number" id="max" name="max" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="min">Min Threshold <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="min">Min Threshold 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="min" name="min" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="1-9999">
+                          <input type="number" id="min" name="min" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -172,19 +167,36 @@ include("query/redirect_billing.php");
                         <div class="col-md-3 col-sm-3 col-xs-6">
                           <div class="radio">
                             <label>
-                              <input type="radio" checked="" value="y" id="optionsRadios1" name="optionsRadios"> Ya
+                              <input type="radio" checked="" class="flat" value="y" name="optionsRadios"> Ya
                             </label>
                           </div>
                           <div class="radio">
                             <label>
-                              <input type="radio" value="n" id="optionsRadios2" name="optionsRadios"> Tidak
+                              <input type="radio" value="n" class="flat" name="optionsRadios"> Tidak
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Unit Satuan<span class="required">*</span>
+                        </label>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" checked="" class="flat" value="KG"  name="optionsRadios2"> KG 
+                            </label>
+                            <label>
+                              <input type="radio" value="Satuan" class="flat"  name="optionsRadios2"> Satuan 
+                            </label>
+                            <label>
+                              <input type="radio" value="Meter Persegi" class="flat"  name="optionsRadios2"> m<sup>2</sup> (Meter Persegi) 
                             </label>
                           </div>
                         </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-12 col-xs-12" align="center">
                           <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
@@ -230,12 +242,14 @@ include("query/redirect_billing.php");
 
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
     <!-- FastClick -->
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
-        <!-- jQuery custom content scroller -->
+    <!-- jQuery custom content scroller -->
     <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
