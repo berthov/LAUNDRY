@@ -111,7 +111,7 @@ $MENU_TOGGLE.on('click', function() {
 			$SIDEBAR_MENU.find('li.active-sm').addClass('active').removeClass('active-sm');
 		}
 
-	$BODY.toggleClass('nav-md nav-sm');
+	$BODY.toggleClass('nav-sm nav-md');
 
 	setContentHeight();
 
@@ -1993,9 +1993,9 @@ if (typeof NProgress != 'undefined') {
 				console.log('init_charts');
 			
 				
-				Chart.defaults.global.legend = {
-					enabled: false
-				};
+				// Chart.defaults.global.legend = {
+				// 	enabled: true
+				// };
 				
 				
 
@@ -2166,9 +2166,9 @@ if (typeof NProgress != 'undefined') {
 				
 			  // Line chart
 			 
-			if ($('#lineChart').length ){	
+			if ($('#lineChart1').length ){	
 			
-			  var ctx = document.getElementById("lineChart");
+			  var ctx = document.getElementById("lineChart1");
 			  ctx.height = 110;
 			  var lineChart = new Chart(ctx, {
 				type: 'line',
@@ -2176,16 +2176,37 @@ if (typeof NProgress != 'undefined') {
 				  labels: ["January", "February", "March", "April", "May", "June", "July"],
 				  datasets: [{
 					label: "My First dataset",
-					backgroundColor: "rgba(0, 157, 169, 0.31)",
+					backgroundColor: "rgba(255, 255, 255, 0)",
 					borderColor: "rgba(0, 157, 169, 0.7)",
 					pointBorderColor: "rgba(0, 157, 169, 0.7)",
 					pointBackgroundColor: "rgba(0, 157, 169, 0.7)",
 					pointHoverBackgroundColor: "#fff",
-					pointHoverBorderColor: "rgba(220,220,220,1)",
-					pointBorderWidth: 1,
+					pointHoverBorderColor: "rgba(0, 157, 169, 1)",
+					pointBorderWidth: 3,
+					// borderWidth:5,
 					data: [31, 74, 6, 39, 20, 85, 7]
+				  },
+				  {
+					label: "My Second dataset",
+					backgroundColor: "rgba(255, 255, 255, 0)",
+					borderColor: "rgba(234, 187, 120, 0.7)",
+					pointBorderColor: "rgba(234, 187, 120, 0.7)",
+					pointBackgroundColor: "rgba(234, 187, 120, 0.7)",
+					pointHoverBackgroundColor: "#fff",
+					pointHoverBorderColor: "rgba(234, 187, 120, 1)",
+					pointBorderWidth: 3,
+					// borderWidth:5,
+					data: [12, 57, 41, 12, 63, 22, 43]
 				  }]
 				},
+				  options: {
+				    legend: {
+				      // display: true,
+				      labels: {
+				        fontColor: "#000000"
+				      }
+				    }
+				  }   
 			  });
 			
 			}
@@ -2229,30 +2250,24 @@ if (typeof NProgress != 'undefined') {
 			if ($('#canvasDoughnut').length ){ 
 			  
 			  var ctx = document.getElementById("canvasDoughnut");
-			  ctx.height = 250;
+			  ctx.height = 300;
 			  var data = {
 				labels: [
-				  "Dark Grey",
-				  "Purple Color",
-				  "Gray Color",
-				  "Green Color",
-				  "Blue Color"
+				  "Online",
+				  "Cash",
+				  "Credit Card"
 				],
 				datasets: [{
-				  data: [120, 50, 140, 180, 100],
+				  data: [120, 50, 140],
 				  backgroundColor: [
-					"#455C73",
-					"#9B59B6",
-					"#BDC3C7",
-					"#26B99A",
-					"#3498DB"
+					"#b8bae6",
+					"#9bddde",
+					"#f16e7a"
 				  ],
 				  hoverBackgroundColor: [
-					"#34495E",
-					"#B370CF",
-					"#CFD4D8",
-					"#36CAAB",
-					"#49A9EA"
+					"#b2b4e7",
+					"#7bd1d4",
+					"#f8a6ab"
 				  ]
 
 				}]
@@ -2260,8 +2275,33 @@ if (typeof NProgress != 'undefined') {
 
 			  var canvasDoughnut = new Chart(ctx, {
 				type: 'doughnut',
-				tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-				data: data
+				tooltipFillColor: "rgba(51, 51, 52, 0.55)",
+				data: data,
+				options:{
+					cutoutPercentage: 70,
+					legend:{
+						position:'bottom',
+						labels:{
+							padding:5,
+							boxWidth:40
+						}
+					},
+					tooltips: {
+					    callbacks: {
+					      label: function(tooltipItem, data) {
+					        var dataset = data.datasets[tooltipItem.datasetIndex];
+					        var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+					        var total = meta.total;
+					        var currentValue = dataset.data[tooltipItem.index];
+					        var percentage = parseFloat((currentValue/total*100).toFixed(1));
+					        return currentValue + ' (' + percentage + '%)';
+					      },
+					      title: function(tooltipItem, data) {
+					        return data.labels[tooltipItem[0].index];
+					      }
+					    }
+				    }
+				}
 			  });
 			 
 			} 
