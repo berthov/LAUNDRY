@@ -88,24 +88,10 @@ include("query/redirect_billing.php");
                       <span class="section">Master Item Info</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Item Code <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="item_code" class="form-control col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="item_code" placeholder="Contoh: RMT-00000001" required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="description" name="description" required="required" class="form-control col-md-7 col-xs-12" placeholder="Contoh: Cuci Satuan">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Quantity <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="qty" name="qty" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -120,20 +106,6 @@ include("query/redirect_billing.php");
                             <option value="1440">HARI</option>
                             <option value="10080">MINGGU</option>
                           </select>
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="max">Max Threshold 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="max" name="max" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="min">Min Threshold 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="min" name="min" required="required" min="0" max="9999" class="form-control col-md-7 col-xs-12" placeholder="0-9999">
                         </div>
                       </div>
                       <div class="item form-group">
