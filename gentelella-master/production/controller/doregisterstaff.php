@@ -37,13 +37,13 @@
 
 	  				// cek double entry kalau dia input waktu statusnya udah member
 	  				$sql_p = "SELECT * FROM employee where ledger_id = '".$ledger_new."' and name = '".$usernameregister."' and email = '".$emailregister."'  ";
-	  				$result_p = mysqli_query($conn1, $sql_p);
+	  				$result_p = mysqli_query($conn, $sql_p);
 	  				$existing_p = mysqli_fetch_assoc($result_p);
 
 
 	  				if ($existing_p === NULL) {
 						$sql_p = "INSERT INTO employee (name, role, email, outlet_id, employee_id, created_by, last_update_by, created_date, last_update_date, password,ledger_id) VALUES ('$usernameregister', '$roleregister', '$emailregister', '$outletregister', NULL, NULL, NULL, '$created', NULL, '$passwordregister','$ledger_new')";
-	  					$result_p = mysqli_query($conn1, $sql_p);	
+	  					$result_p = mysqli_query($conn, $sql_p);	
 	  				}
 
 					header("location: ../employees.php");

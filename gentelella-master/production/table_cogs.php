@@ -16,6 +16,16 @@ include("controller/session.php");
 
     <title>Bonne Journée! </title>
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../vendors/toastr/toastr.min.css">
+    <script src="../vendors/toastr/jquery-1.9.1.min.js"></script>
+    <script src="../vendors/toastr/toastr.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,11 +37,20 @@ include("controller/session.php");
     <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.css" rel="stylesheet">
+
     <!-- jQuery custom content scroller -->
     <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    
+    <!-- Custom Theme Style -->
+    <link href="../build/css/Custom.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <!-- Change Status -->
+    <script src="../production/controller/changeStatus.js"></script>
+
+    <!-- Switchery -->
+    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <link href="../vendors/switchery/bootstrap_toggle/2.2.2/bootstrap_toggle.min.css" rel="stylesheet">
+    <script src="../vendors/switchery/bootstrap_toggle/2.2.2/bootstrap_toggle.min.js"></script>
 
 
   </head>
@@ -104,6 +123,7 @@ include("controller/session.php");
                               and c.ledger_id = i.ledger_id
                               and o.ledger_id = i.ledger_id
                               and o.outlet_id = i.outlet_id
+                              and i.ledger_id = '".$ledger_new."'
                               and c.item_cost_id = (select 
                                 max(c_1.item_cost_id)
                                 From
@@ -113,7 +133,7 @@ include("controller/session.php");
                                 and c_1.ledger_id = c.ledger_id)
                               ";
 
-                              $result = $conn1->query($sql);
+                              $result = $conn->query($sql);
                               while($row = $result->fetch_assoc()) {
                             ?>
 

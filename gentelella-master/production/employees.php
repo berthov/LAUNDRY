@@ -2,6 +2,7 @@
 include("controller/doconnect.php");
 session_start();
 include("controller/session.php");
+/*include("common/modal.html");*/
 ?>
 
 <!DOCTYPE html>
@@ -93,22 +94,6 @@ include("controller/session.php");
                       <h2><strong>STAFF</strong></h2>
                       <div class="clearfix"></div>
                     </div>
-                   <!-- <div class="col-md-6">
-                          <form class="form-horizontal">
-                            <fieldset >
-                              <div class="control-group" >
-                                <div class="controls" >
-                                  <div class="input-prepend input-group">
-                                    <input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control pull-right" value="01/01/2016 - 01/25/2016" />
-                                    <span class="add-on input-group-addon">
-                                      <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </fieldset>
-                          </form>
-                    </div> -->
                     <div class="col-md-6 col-xs-6">
                       <form action="addstaff.php">
                           <input type="submit" value="Add Staff" class="btn btn-round btn-primary pull-right"/>

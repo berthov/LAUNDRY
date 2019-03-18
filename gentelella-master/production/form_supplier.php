@@ -80,39 +80,42 @@ include("controller/session.php");
                   <div class="x_content">
                     <form id="formsupplier" class="form-horizontal form-label-left" method="post" action="controller/doaddparty.php" novalidate>
 
-                      <span class="section">Customer Info</span>
+                      <span class="section">Supplier Info</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="party_name">Customer Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="party_name">Supplier Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="party_name" class="form-control col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="party_name" placeholder="Ex. PT.Integrasi Solution" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="party_site">Alamat <span class="required"> </span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="party_site">Supplier Site <span class="required"> </span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="party_site" name="party_site" class="form-control col-md-7 col-xs-12" placeholder="Jakarta" type="text">
                         </div>
                       </div>
-                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">No HP <span class="required">*</span>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="party_type">Supplier Type <span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="phone" name="phone" required="required" min="0" class="form-control col-md-7 col-xs-12">
+                          <select class="form-control col-md-7 col-xs-12" name="party_type" id="party_type">
+                            <option value="Lokal">Lokal</option>
+                            <option value="Impor">Impor</option>
+                          </select>
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tax">Tax <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="email" class="form-control form-tes col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="email" required="required" type="text">
+                          <input type="number" id="tax" name="tax" required="required" min="0" max="20" class="form-control col-md-7 col-xs-12" placeholder="0-20%">
                         </div>
                       </div>
-                      <input type="hidden" name="party_type" value="Lokal">
-                      <input type="hidden" name="tax" value="0">
-                      <input type="hidden" name="category" value="customer">
+                      <input type="hidden" name="phone" value="">
+                      <input type="hidden" name="email" value="">
+                      <input type="hidden" name="category" value="supplier">
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
@@ -169,8 +172,8 @@ include("controller/session.php");
     <script src="../build/js/custom.min.js"></script>
     <!-- jQuery custom content scroller -->
     <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-	   
-    <script src="../production/common/error.js"></script>
+     
+    <!-- <script src="../production/common/error.js"></script> -->
 
 
   </body>

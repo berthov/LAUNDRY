@@ -13,7 +13,7 @@
       </div>
       <div class="profile_info">
         <span>Welcome,</span>
-        <h2>John Doe</h2>
+        <h2><?php echo($user_check); ?></h2>
       </div>
     </div>
     <!-- /menu profile quick info -->
@@ -42,7 +42,8 @@
               <li><a href="form_menu_bulanan.php">Tambah Menu Paket Bulanan</a></li>
               <li><a href="cogs.php">Cost of Goods Sold (COGS) Manual</a></li>
               <li><a href="adjustment_inventory.php">Adjustment Inventory</a></li>
-              <li><a href="form_customer.php">Data Pelanggan</a></li>
+              <li><a href="form_customer.php">Input Data Customer</a></li>
+              <li><a href="form_supplier.php">Input Data Supplier</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-desktop"></i> Transactions <span class="fa fa-chevron-down"></span></a>

@@ -225,6 +225,7 @@ $(document).ready(function() {
     var optionsRadios2=$('input[name=optionsRadios2]:checked').val();
     var satuan_waktu_pengerjaan=$("#satuan_waktu_pengerjaan").val();
 
+
     if(!other_category){
       other_category = category;
     }
@@ -251,6 +252,8 @@ $(document).ready(function() {
           }
           else{
              window.location.href="../production/form_validation.php";
+             // console.log(other_category);
+             // console.log(category)
           }
         }
     });
@@ -308,7 +311,7 @@ $(document).ready(function() {
             toastr.error('Supplier already exist');                     
           }
           else{
-             window.location.href="../production/form_supplier.php";
+             window.location.href="../production/form_customer.php";
           }
         }
     });

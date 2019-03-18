@@ -108,8 +108,9 @@ include("controller/session.php");
                             outlet o
                             WHERE
                             o.ledger_id = ih.ledger_id                              
-                            and o.outlet_id = ih.outlet_id";
-                            $result = $conn1->query($sql);
+                            and o.outlet_id = ih.outlet_id
+                            and o.ledger_id = '".$ledger_new."'";
+                            $result = $conn->query($sql);
                             while($row = $result->fetch_assoc()) {                      
                          ?>
 

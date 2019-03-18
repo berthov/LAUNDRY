@@ -1,6 +1,7 @@
 <?php
-	session_start();
+
 	include("doconnect.php");
+	session_start();
 	include("session.php");
 	include ("../query/find_ledger.php");
 
@@ -36,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 		mysqli_close($conn);
 
-		header("Location:../form_supplier.php");
+		header("Location:../form_customer.php");
 	}
 }
 

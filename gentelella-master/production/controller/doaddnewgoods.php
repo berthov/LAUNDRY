@@ -19,7 +19,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$optionsRadios = $_REQUEST['optionsRadios'];
 	$optionsRadios2 = $_REQUEST['optionsRadios2'];
 	$satuan_waktu_pengerjaan = $_REQUEST['satuan_waktu_pengerjaan'];
-	
 
 	if ($_REQUEST['category'] == 'Other') {
 		$category = $_REQUEST['other_category'];

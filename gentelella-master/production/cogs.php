@@ -91,7 +91,22 @@ include ('controller/session.php');
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inventory_item_id">Item Description <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="form-control" name="inventory_item_id" id="inventory_item_id" required="required">                           
+                            <select class="form-control" name="inventory_item_id" id="inventory_item_id" required="required">
+
+                            <?php
+                              $sql = "SELECT description,id FROM inventory
+                              where ledger_id = '".$ledger_new."'
+                              and outlet_id = '".$outlet_new."'";
+                              $result = $conn->query($sql);
+                              $a = 0;
+                              while($row = $result->fetch_assoc()) {
+                            ?>
+                            
+                              <option value="<?php echo $row["id"] ?>"> <?php echo $row["description"] ?></option>
+                            
+                            <?php
+                              }
+                            ?>                           
                             
                             </select>
                         </div>
@@ -153,12 +168,43 @@ include ('controller/session.php');
                         </tr>
                       </thead>
                       <tbody>           
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                        </tr>                           
+
+                        <?php
+                          $sql = "SELECT c.item_cost , 
+                          i.description , 
+                          c.sales_price,
+                          c.periode 
+                          FROM cogs c, 
+                          inventory i
+                          where 
+                          c.inventory_item_id = i.id
+                          and c.ledger_id = i.ledger_id
+                          and c.ledger_id = '".$ledger_new."'
+                          and c.outlet_id = '".$outlet_new."'
+                          and c.item_cost_id = (select 
+                            max(c_1.item_cost_id)
+                            From
+                            cogs c_1
+                            where
+                            c_1.inventory_item_id = c.inventory_item_id
+                            and c_1.ledger_id = c.ledger_id)
+                          ";
+
+                          $result = $conn->query($sql);
+                          while($row = $result->fetch_assoc()) {
+                        ?>
+
+                          <tr>
+                            <td><?php echo $row["description"] ?></td>
+                            <td><?php echo "Rp."; echo number_format($row["item_cost"]) ?></td>
+                            <td><?php echo "Rp."; echo number_format($row["sales_price"]) ?></td>
+                            <td><?php echo date('d-m-Y', strtotime($row["periode"]));?></td>
+                          </tr>
+
+                        <?php
+                          }
+                        ?>
+
                       </tbody>
                     </table>
                   </div>

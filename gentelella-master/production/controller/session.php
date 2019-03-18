@@ -6,11 +6,11 @@
       header("location: login.php");
    }
    
-   $sqlsession = mysqli_query($conn1,"select name from employee where name = '$user_check' ");
+   $sqlsession = mysqli_query($conn,"select name from employee where name = '$user_check' ");
    
    $row = mysqli_fetch_array($sqlsession,MYSQLI_ASSOC);
    if (!$row) {
-		    printf("Error: %s\n", mysqli_error($conn1));
+		    printf("Error: %s\n", mysqli_error($conn));
 		    exit();
 		}
    
@@ -19,4 +19,7 @@
    if(!isset($_SESSION['login_user'])){
       header("location:login.php");
    }
+
+   include("query/find_ledger.php");
+
 ?>

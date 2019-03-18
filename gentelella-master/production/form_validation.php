@@ -15,6 +15,10 @@ include ('controller/session.php');
 
     <title>Gentelella Alela! | </title>
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../vendors/toastr/toastr.min.css">
+    <script src="../vendors/toastr/jquery-1.9.1.min.js"></script>
+    <script src="../vendors/toastr/toastr.min.js"></script>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -105,7 +109,7 @@ include ('controller/session.php');
                           <input type="number" id="waktu_pengerjaan" name="waktu_pengerjaan" required="required" min="1" max="9999" class="form-control col-md-7 col-xs-12" placeholder="Contoh: 2 JAM">
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                          <select name="satuan_waktu_pengerjaan" id="satuan_waktu_pengerjaan" class="form-control col-lg-3 col-md-3 col-xs-4 category">
+                          <select name="satuan_waktu_pengerjaan" id="satuan_waktu_pengerjaan" class="form-control col-lg-3 col-md-3 col-xs-4">
                             <option value="60">JAM</option>
                             <option value="1440">HARI</option>
                             <option value="10080">MINGGU</option>
@@ -132,7 +136,19 @@ include ('controller/session.php');
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="category" id="category" onchange="showfield(this.options[this.selectedIndex].value)" class="form-control col-md-7 col-xs-12 category">
                           <option value="uncategorized">Select Or Add Category</option>
-                    
+          
+                         <?php
+                            $sql = "SELECT distinct category 
+                            FROM inventory
+                            where ledger_id = '".$ledger_new."'
+                            ";
+                            $result = $conn->query($sql);
+                            while($row = $result->fetch_assoc()) {
+                          ?>
+                              <option value="<?php echo $row["category"] ?>"> <?php echo $row["category"] ?></option>
+                          <?php
+                            }
+                          ?>
 
                           <option value="Other" name="Other">Add Category</option>
                           </select>

@@ -91,7 +91,23 @@ include("controller/session.php");
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select class="form-control" id="inventory_item_id" name="inventory_item_id" required="required">
+ 
+                            <?php
+                              $sql = "SELECT description,id FROM inventory
+                              where ledger_id = '".$ledger_new."' 
+                              and outlet_id = '".$outlet_new."'
+                              and status = 'Active'
+                              and qty >=0";
+                              $result = $conn->query($sql);
+                              $a = 0;
+                              while($row = $result->fetch_assoc()) {
+                            ?>
                             
+                              <option value="<?php echo $row["id"] ?>"> <?php echo $row["description"] ?></option>
+                            
+                            <?php
+                              }
+                            ?>                            
                             
                             </select>
                         </div>
@@ -155,13 +171,36 @@ include("controller/session.php");
                       </thead>
                       <tbody>           
 
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                          <td>5</td>
-                        </tr>
+                        <?php
+                          $sql = "SELECT inv.description as item_name , 
+                          mt.qty , 
+                          mt.description , 
+                          mt.transaction_date,mt.type
+                          from inventory inv,
+                          material_transaction mt
+                          where
+                          inv.ledger_id = mt.ledger_id
+                          and inv.id = mt.inventory_item_id
+                          and inv.ledger_id = '".$ledger_new."'
+                          and inv.outlet_id = '".$outlet_new."'
+                          order by mt.transaction_id desc
+                          ";
+
+                          $result = $conn->query($sql);
+                          while($row = $result->fetch_assoc()) {
+                        ?>
+
+                          <tr>
+                            <td><?php echo $row["item_name"] ?></td>
+                            <td><?php echo $row["qty"] ?></td>
+                            <td><?php echo date('d-m-Y', strtotime($row["transaction_date"])) ?></td>
+                            <td><?php echo $row["description"];?></td>
+                            <td><?php echo $row["type"];?></td>
+                          </tr>
+
+                        <?php
+                          }
+                        ?>
                            
                       </tbody>
                     </table>

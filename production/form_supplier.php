@@ -84,7 +84,7 @@ include("query/redirect_billing.php");
                       <span class="section">Supplier Info</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="supplier_name">Suplier Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="supplier_name">Supplier Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="supplier_name" class="form-control col-md-7 col-xs-12" data-suggestions="White, Green, Blue, Black, Brown" name="supplier_name" placeholder="Ex. PT.Integrasi Solution" required="required" type="text">

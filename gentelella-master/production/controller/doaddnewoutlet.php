@@ -2,7 +2,7 @@
 	
 	session_start();
 	include("doconnect.php");
-	include("session.php");
+	$user_check = $_SESSION['login_user'];
 	include("../query/find_ledger.php");
 
 

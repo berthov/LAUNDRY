@@ -128,9 +128,10 @@ include("controller/session.php");
                               where 
                               o.ledger_id = i.ledger_id                              
                               and o.outlet_id = i.outlet_id
+                              and i.ledger_id = '".$ledger_new."'
                               ";
 
-                            $result = $conn1->query($sql);
+                            $result = $conn->query($sql);
                             while($row = $result->fetch_assoc()) {
                         ?>
                       
