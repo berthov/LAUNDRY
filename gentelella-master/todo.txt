@@ -1,0 +1,8 @@
+from validation - doaddnewgoods blom
+form menu bulanan blom
+cogs - doaddcogs blom
+adjustment inv - doaddadjustment_inv
+media gallery blom semua
+table inventory masih blom semua
+outlet masih blom semua
+employee masih blom semua
